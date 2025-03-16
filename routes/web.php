@@ -1,15 +1,15 @@
 <?php
 
+use App\Http\Controllers\AutenticacaoController;
 use App\Http\Controllers\MainController;
+use Illuminate\Auth\Events\Login;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    echo "Hello Word";
-});
+// All Autentication Routes
 
-Route::get('/about', function(){
-    echo 'About us';
-});
+Route::get('/login', [AutenticacaoController::class, 'login']);
 
+Route::post('/loginSubmit', [AutenticacaoController::class, 'loginSubmit']);
 
-Route::get('/main/{value}', [MainController::class, 'index']);
+Route::get('/logout',[AutenticacaoController::class, 'logout']);
+
