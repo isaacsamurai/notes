@@ -12,7 +12,10 @@ class AutenticacaoController extends Controller
     
     public function loginSubmit(Request $request){
 
-        echo 'login adentrado';
+        echo $request->input('text_username');
+        echo '<br>';
+        echo $request->input('text_username');
+
     }
 
     public function logout(){
