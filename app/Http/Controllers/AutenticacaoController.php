@@ -14,12 +14,10 @@ class AutenticacaoController extends Controller
 
     public function loginSubmit(Request $request)
     {
-
         $request->validate
         (
         //form validation
             [
-
                 'text_username' => 'required|email',
                 'text_password' => 'required|min:6|max:16'
             ],
@@ -63,7 +61,7 @@ class AutenticacaoController extends Controller
             'username' => $user->username]
         ]);
 
-        echo 'LOGIN REALIZADO COM SUCESSO';
+        return redirect()->to('/');
     }
 
         //check is password is correct
