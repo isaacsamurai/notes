@@ -71,5 +71,4 @@ class AutenticacaoController extends Controller
         session()->forget('user');
         return redirect()->to('/login');
     }
-
 }
