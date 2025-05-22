@@ -15,11 +15,15 @@ Route::middleware([CheckIsNotLogged::class])->group(function(){
 // app routes user logged
 Route::middleware([CheckIsLogged::class])->group(function(){
     Route::get('/', [MainController::class, 'index'])->name('paginainicialdohomem');
-    Route::get('/newNote', [MainController::class, 'newNote'])->name('criandohorrores');
     Route::get('/logout',[AutenticacaoController::class, 'logout'])->name(('logout'));
+
+    Route::get('/newNote', [MainController::class, 'newNote'])->name('criandohorrores');
+    Route::post('/newNoteSubmit', [MainController::class, 'newNoteSubmit'])->name('newNoteSubmit');
 
     //edit note
     Route::get('/editNote/{id}', [MainController::class, 'editNote'])->name('edit');
+    Route::post('/editNoteSubmit', [MainController::class, 'editNoteSubmit'])->name('editNoteSubmit');
+
     Route::get('/deleteNote/{id}', [MainController::class, 'deleteNote'])->name('delete');
 
 });
